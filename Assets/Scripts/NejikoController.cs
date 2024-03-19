@@ -33,12 +33,12 @@ public class NejikoController : MonoBehaviour
 
             if(Input.GetButton("Jump")){
                 moveDirection.y=speedJump;
-                animator.SetTrigger("Jump");
+                animator.SetTrigger("jump");
             }
         }
         //重力分の力のマイフレームを追加
         moveDirection.y -= gravity * Time.deltaTime;
-        //移動実行
+        //移動実行(ネジコの向きを考慮したベクトルに変換)
         Vector3 globalDirection = transform.TransformDirection(moveDirection);
         controller.Move(globalDirection*Time.deltaTime);
 
